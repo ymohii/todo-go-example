@@ -1,0 +1,23 @@
+{{define "body"}}
+    <h1>Todos</h1>
+
+    <table>
+        <thead>
+            <th>Description</th>
+            <th>DeadLine</th>
+            <th>Status</th>
+            <th>Operation</th>
+        </thead>
+        <tbody>
+        </tbody>
+        {{range .todos}}
+            <tr>
+                <td>{{.Description}}</td>
+                <td>{{.Deadline}}</td>
+                <td>{{if .Status}} Completed {{else}} Pending {{end}}</td>
+                <td><a href="/todo/edit?ID={{.ID}}">Edit</a> | <a href="/todo/delete?ID={{.ID}}">Delete</a></td>
+            </tr>
+        {{end}}
+    </table>
+
+{{end}}

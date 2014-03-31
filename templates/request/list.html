@@ -1,0 +1,21 @@
+{{define "body"}}
+    <h1>Request</h1>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>DeviceId</th>
+            <th>Time</th>
+        </thead>
+        <tbody>
+        </tbody>
+        {{range .requests}}
+            <tr>
+                <td>{{.ID}}</td>
+                <td>{{.DeviceId}}</td>
+                <td>{{.Created}}</td>
+            </tr>
+        {{end}}
+    </table>
+
+{{end}}

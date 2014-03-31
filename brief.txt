@@ -1,0 +1,4 @@
+X handle requests from /request/query
+X save device_id in query string to data store
+* use query string "device_id" to determine with url to return
+X list "device_id"s at /request/list

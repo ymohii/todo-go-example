@@ -1,0 +1,38 @@
+body {
+    padding: 1em;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    float: left;
+    padding: 0.5em;
+}
+
+header:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+input[type="text"] {
+    padding: 0.125em;
+    margin: 0.375em 0;
+}
+
+label {
+    min-width: 5em;
+    display: inline-block;
+}
+
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0.5em 1em;
+    border: 1px solid #ddd;
+}

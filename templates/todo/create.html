@@ -1,0 +1,12 @@
+{{define "body"}}
+    <h1>Create New Todo</h1>
+
+    <form action="create" method="post">
+    Description:<textarea name="description"></textarea></br>
+
+    DeadLine:<input type="text" name="deadline" value="{{.timeNow}}"></br>
+    <input type="checkbox" name="status" value="completed">Completed </br>
+    <input type="submit" value="Save">
+
+    </form>
+{{end}}

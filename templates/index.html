@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Go Example</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/static/styles/main.css" />
+        {{define "head"}}{{end}}
+        {{template "head" .}}
+    </head>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/request/query">Request - Query</a></li>
+                <li><a href="/request/list">Request - List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        {{template "body" .}}
+    </body>
+</html>
