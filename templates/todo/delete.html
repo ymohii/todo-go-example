@@ -2,7 +2,7 @@
     <h1>Create New Todo</h1>
 
     <form action="delete" method="post">
-    Are you sure you want to Delete the Todo Item "{{.todo.Description}}"?</br>
+    Are you sure you want to Delete the Todo Item "{{.todo.DescriptionPreview}}"?</br>
     <a href="/todo/list">Cancel</a> 
     <input type="hidden" name="ID" value="{{.todo.ID}}">
     <input type="submit" value="Delete">

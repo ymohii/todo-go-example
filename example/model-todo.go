@@ -18,6 +18,7 @@ type Todo struct {
 type TodoView struct {
     ID int64
     Description string
+    DescriptionPreview string
     Deadline string
     Status bool
 }
@@ -53,11 +54,13 @@ func (this *Todo) getFormattedTodo(formatFor string) (*TodoView){
     todoView.Deadline = this.Deadline.Format(layout)
     todoView.Status = this.Status
 
-    if (formatFor == "list" || formatFor == "delete")  && len(this.Description) > 50{
-        todoView.Description = this.Description[0:50] + "..."
+    if len(this.Description) > 50{
+        todoView.DescriptionPreview = this.Description[0:50] + "..."
     }else {
-        todoView.Description = this.Description 
+        todoView.DescriptionPreview = this.Description
     }
+
+    todoView.Description = this.Description
 
     return todoView
 }
