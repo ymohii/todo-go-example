@@ -1,0 +1,12 @@
+{{define "body"}}
+    <h1>Confirmation</h1>
+
+    <form action="/subtask/delete" method="post">
+    Are you sure you want to Delete the Todo Item "{{.subtask.DescriptionPreview}}"?</br>
+    <a href="/todo/list">Cancel</a> 
+    <input type="hidden" name="ID" value="{{.subtask.ID}}">
+    <input type="hidden" name="parent" value="{{.subtask.ParentID}}">
+    <input type="submit" value="Delete">
+
+    </form>
+{{end}}

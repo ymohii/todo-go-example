@@ -12,7 +12,7 @@
         </tbody>
         {{range .todos}}
             <tr>
-                <td>{{.DescriptionPreview}}</td>
+                <td><a href="/todo/{{.ID}}">{{.DescriptionPreview}}</a></td>
                 <td>{{.Deadline}}</td>
                 <td>{{if .Status}} Completed {{else}} Pending {{end}}</td>
                 <td><a href="/todo/edit/{{.ID}}">Edit</a> | <a href="/todo/delete/{{.ID}}">Delete</a></td>

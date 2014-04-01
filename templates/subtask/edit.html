@@ -1,0 +1,14 @@
+{{define "body"}}
+    <h1>Edit Todo Item</h1>
+
+    <form action="/subtask/edit" method="post">
+    Description:<textarea name="description">{{.subtask.Description}}</textarea></br>
+
+    <input type="checkbox" name="status" value="completed" {{if .subtask.Status}}checked{{end}}> Completed </br>
+    <input type="hidden" name="ID" value="{{.subtask.ID}}">
+    <input type="hidden" name="parent" value="{{.subtask.ParentID}}">
+    
+    <input type="submit" value="Save">
+
+    </form>
+{{end}}

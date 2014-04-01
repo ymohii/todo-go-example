@@ -1,0 +1,14 @@
+{{define "body"}}
+    <h1>Create New Subtask</h1>
+
+    <form action="/subtask/create" method="post">
+    Description:<textarea name="description"></textarea></br>
+
+    <input type="checkbox" name="status" value="completed">Completed </br>
+
+    <input type="hidden" name="parent" value="{{.parentID}}">
+
+    <input type="submit" value="Save">
+
+    </form>
+{{end}}

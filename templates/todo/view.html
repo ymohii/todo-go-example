@@ -1,16 +1,13 @@
 {{define "body"}}
-    <h1>Edit Todo Item</h1>
+    <h1>Todo Item</h1>
 
-    <form action="/todo/edit" method="post">
-    Description:<textarea name="description">{{.todo.Description}}</textarea></br>
+    <h2>Description</h2><div>{{.todo.Description}}</div>
 
-    DeadLine:<input type="text" name="deadline" value="{{.todo.Deadline}}"></br>
-    <input type="checkbox" name="status" value="completed" {{if .todo.Status}}checked{{end}}> Completed </br>
-    <input type="hidden" name="ID" value="{{.todo.ID}}">
-    <input type="submit" value="Save">
+    <h2>DeadLine</h2><div>{{.todo.Deadline}}</div>
+    <h2>Status</h2><div>{{if .Status}} Completed {{else}} Pending {{end}}</div>
 
-    </form>
-    <h1>Subtasks</h1>
+
+    <h2>Subtasks</h2>
     <a href="/todo/{{.todo.ID}}/createSubtask">Create SubTask</a>
 
     <table>

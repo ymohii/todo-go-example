@@ -34,6 +34,8 @@ func todoEditHandler(w http.ResponseWriter, r *http.Request, params martini.Para
     }
     todo,err := getTodo(c, (int64)(id))
 
+    subtasks,_ := getSubtaskList(c, todo)
+
     if(err != nil) {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }
@@ -41,7 +43,7 @@ func todoEditHandler(w http.ResponseWriter, r *http.Request, params martini.Para
     t, err := template.ParseFiles("templates/todo/index.html", "templates/todo/edit.html")
 
 
-    if err := t.Execute(w, map[string]interface{}{"todo": todo.getFormattedTodo("edit")} ); err != nil {
+    if err := t.Execute(w, map[string]interface{}{"todo": todo.getFormattedTodo("edit"), "subtasks": subtasks} ); err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
@@ -141,3 +143,21 @@ func todoCreatePostHandler(w http.ResponseWriter, r *http.Request, params martin
     http.Redirect(w, r, "/todo/list", http.StatusTemporaryRedirect)
 }
 
+func todoViewHandler(w http.ResponseWriter, r *http.Request, params martini.Params) {
+    context := appengine.NewContext(r)
+
+    id,_ := strconv.Atoi(params["parentID"])
+    todo,err := getTodo(context, (int64)(id))
+    subtasks,_ := getSubtaskList(context, todo)
+
+    if(err != nil) {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+
+    t, err := template.ParseFiles("templates/todo/index.html", "templates/todo/view.html")
+
+
+    if err := t.Execute(w, map[string]interface{}{"todo": todo.getFormattedTodo("edit"), "subtasks": subtasks} ); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+}

@@ -28,6 +28,12 @@ indexes:
   - name: Time
     direction: desc
 
+- kind: Subtask
+  ancestor: yes
+  properties:
+  - name: Updated
+    direction: desc
+
 - kind: Todo
   ancestor: yes
   properties:
