@@ -1,7 +1,7 @@
 {{define "body"}}
     <h1>Edit Todo Item</h1>
 
-    <form action="edit" method="post">
+    <form action="/todo/edit" method="post">
     Description:<textarea name="description">{{.todo.Description}}</textarea></br>
 
     DeadLine:<input type="text" name="deadline" value="{{.todo.Deadline}}"></br>

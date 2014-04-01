@@ -1,7 +1,7 @@
 {{define "body"}}
     <h1>Create New Todo</h1>
 
-    <form action="create" method="post">
+    <form action="/todo/create" method="post">
     Description:<textarea name="description"></textarea></br>
 
     DeadLine:<input type="text" name="deadline" value="{{.timeNow}}"></br>

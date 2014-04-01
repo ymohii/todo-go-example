@@ -15,7 +15,7 @@
                 <td>{{.DescriptionPreview}}</td>
                 <td>{{.Deadline}}</td>
                 <td>{{if .Status}} Completed {{else}} Pending {{end}}</td>
-                <td><a href="/todo/edit?ID={{.ID}}">Edit</a> | <a href="/todo/delete?ID={{.ID}}">Delete</a></td>
+                <td><a href="/todo/edit/{{.ID}}">Edit</a> | <a href="/todo/delete/{{.ID}}">Delete</a></td>
             </tr>
         {{end}}
     </table>

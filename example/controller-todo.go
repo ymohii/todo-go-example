@@ -28,7 +28,7 @@ func todoListHandler(w http.ResponseWriter, r *http.Request, params martini.Para
 
 func todoEditHandler(w http.ResponseWriter, r *http.Request, params martini.Params) {
     c := appengine.NewContext(r)
-    id,err := strconv.Atoi(r.FormValue("ID"))
+    id,err := strconv.Atoi(params["ID"])
     if(err != nil) {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }
@@ -91,7 +91,7 @@ func todoCreateHandler(w http.ResponseWriter, r *http.Request, params martini.Pa
 
 func todoDeleteHandler(w http.ResponseWriter, r *http.Request, params martini.Params) {
     c := appengine.NewContext(r)
-    id,_ := strconv.Atoi(r.FormValue("ID"))
+    id,_ := strconv.Atoi(params["ID"])
     todo,err := getTodo(c, (int64)(id))
 
     if(err != nil) {
